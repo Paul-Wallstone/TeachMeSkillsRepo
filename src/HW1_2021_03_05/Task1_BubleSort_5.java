@@ -2,7 +2,7 @@ package HW1_2021_03_05;
 
 import java.util.Arrays;
 
-public class Task1_BubleSort {
+public class Task1_BubleSort_5 {
     public static void main(String[] args) {
 
         int array[] = new int[10];

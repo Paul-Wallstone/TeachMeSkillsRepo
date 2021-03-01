@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.Scanner;
 
 
-public class Task1_Operators_Console {
+public class Task1_Operators_Console_1 {
 
     public static void main(String[] args) {
         String aStr;

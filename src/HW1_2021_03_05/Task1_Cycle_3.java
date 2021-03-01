@@ -1,6 +1,6 @@
 package HW1_2021_03_05;
 
-public class Task1_Cycle {
+public class Task1_Cycle_3 {
     public static void main(String[] args) {
         for(int i=0;i<4;i++){
             for (int j=0;j<5;j++) {

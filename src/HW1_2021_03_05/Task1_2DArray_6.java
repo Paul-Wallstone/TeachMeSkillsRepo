@@ -3,7 +3,7 @@ package HW1_2021_03_05;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Task1_2DArray {
+public class Task1_2DArray_6 {
     public static void main(String[] args) {
 
         int firstSize;

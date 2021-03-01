@@ -2,7 +2,7 @@ package HW1_2021_03_05;
 
 import java.util.Arrays;
 
-public class Task1_JaggedArray {
+public class Task1_JaggedArray_7 {
     public static void main(String[] args) {
         int firstSize = (int) (Math.random() * 20);
         int secondSize = (int) (Math.random() * 20);

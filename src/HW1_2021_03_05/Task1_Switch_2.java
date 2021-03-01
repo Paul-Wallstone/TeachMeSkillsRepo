@@ -2,7 +2,7 @@ package HW1_2021_03_05;
 
 import java.util.Scanner;
 
-public class Task1_Switch {
+public class Task1_Switch_2 {
     public static void main(String[] args) {
         String n;
         Scanner sc = new Scanner(System.in);

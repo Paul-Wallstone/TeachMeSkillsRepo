@@ -2,7 +2,7 @@ package HW1_2021_03_05;
 
 import java.util.*;
 
-public class Task1_Array_1 {
+public class Task1_Array_4 {
     public static void main(String[] args) {
         // через коллекцию ArraList
         List<Double> arrayList = new ArrayList<>(10);
@@ -18,7 +18,7 @@ public class Task1_Array_1 {
             arrayList.add(-5 + Math.random() * 10);
 
         System.out.println(arrayList.toString());
-        
+
         // сортируем элементы
         Collections.sort(arrayList);
 
