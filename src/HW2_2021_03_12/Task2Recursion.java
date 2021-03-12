@@ -1,6 +1,6 @@
 package HW2_2021_03_12;
 
-public class Task2_Recursion_5 {
+public class Task2Recursion {
     public static void main(String[] args) {
         int number = 1297;
         int m=isNaturalNumber(number, number);

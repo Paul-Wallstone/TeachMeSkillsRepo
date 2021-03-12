@@ -1,6 +1,6 @@
 package HW2_2021_03_12;
 
-public class Task2_Cycle_1 {
+public class Task2CycleTraining {
     public static void main(String[] args) {
         double initialDistance = 1000.0;
 
