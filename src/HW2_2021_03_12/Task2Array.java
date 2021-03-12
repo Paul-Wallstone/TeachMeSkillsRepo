@@ -3,7 +3,7 @@ package HW2_2021_03_12;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Task2_Array_4 {
+public class Task2Array {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int count = 0;

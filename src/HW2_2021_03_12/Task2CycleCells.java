@@ -1,6 +1,6 @@
 package HW2_2021_03_12;
 
-public class Task2_Cycle_2 {
+public class Task2CycleCells {
     public static void main(String[] args) {
         int hour =3;
         while (hour<=24)  {

@@ -1,6 +1,6 @@
 package HW2_2021_03_12;
 
-public class Task2_Cycle_3 {
+public class Task2CycleODdNumbers {
 
     public static void main(String[] args) {
         int sum = 0;
