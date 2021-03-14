@@ -21,24 +21,28 @@ public class Task2Array {
 
         for (int i = 0; i < mas.length; i++) {
             mas[i] = (int) (Math.random() * (n + 1));
-            if (mas[i] % 2 == 0) {
-                count++;
-            }
         }
         System.out.println(Arrays.toString(mas));
 
-        int mas2Index = 0;
-        if (count > 0) {
-            int[] mas2 = new int[count];
-            for (int i = 0; i < mas.length; i++) {
-                if (mas[i] % 2 == 0) {
-                    mas2[mas2Index] = mas[i];
-                    System.out.print(mas2[mas2Index] + " ");
-                    mas2Index++;
+        int mas2[];
+        do {
+            if (count == 0)
+                for (int i = 0; i < mas.length; i++) {
+                    if (mas[i] % 2 == 0)
+                        count++;
                 }
+            else {
+                int j = 0;
+                mas2 = new int[count];
+                for (int i = 0; i < mas.length; i++) {
+                    if (mas[i] % 2 == 0) {
+                        mas2[j] = mas[i];
+                        j++;
+                    }
+                }
+                count = 0;
+                System.out.println(Arrays.toString(mas2));
             }
-        }
-
+        } while (count != 0);
     }
 }
-

@@ -3,7 +3,7 @@ package HW2_2021_03_12;
 public class Task2Recursion {
     public static void main(String[] args) {
         int number = 1297;
-        int m = isNaturalNumber(number, number);
+        int m=isNaturalNumber(number, number);
         if (isNaturalNumber(number, number) == 0) {
             System.out.printf("Is number %d simple - YES", number);
         } else System.out.printf("Is number %d simple - NO", number);

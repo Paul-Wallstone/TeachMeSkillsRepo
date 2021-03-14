@@ -2,14 +2,18 @@ package HW2_2021_03_12;
 
 public class Task2CycleCell {
     public static void main(String[] args) {
+        int hour =3;
+        while (hour<=24)  {
 
-        int cell = 1;
-
-        for (int hour = 3; hour <= 24; hour += 3) {
-            cell *= 2;
-            System.out.printf("Количество клеток: %d - через %d часов\n", cell, hour);
+            System.out.printf("Количество клеток: %d - через %d часов\n",divideCell(1, hour),hour);
+            hour+=3;
         }
     }
+
+    private static int divideCell(int cell, int hour) {
+        for (int i = 0; i < hour; i += 3) {
+            cell *= 2;
+        }
+        return cell;
+    }
 }
-
-
