@@ -2,7 +2,7 @@ package HW1_2021_03_05;
 
 import java.util.*;
 
-public class Task1_Array_4 {
+public class Task1Array {
     public static void main(String[] args) {
         // через коллекцию ArraList
         List<Double> arrayList = new ArrayList<>(10);
