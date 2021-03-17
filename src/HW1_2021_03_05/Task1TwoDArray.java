@@ -15,7 +15,7 @@ public class Task1TwoDArray {
             firstSize = sc.nextInt();
             System.out.println("Введите количество столбцов массива");
             secondSize = sc.nextInt();
-        } while (!(firstSize>0)||!(secondSize>0));
+        } while (!(firstSize > 0) || !(secondSize > 0));
 
 
         int[][] array = new int[firstSize][secondSize];

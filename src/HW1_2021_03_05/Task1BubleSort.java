@@ -7,7 +7,7 @@ public class Task1BubleSort {
 
         int array[] = new int[10];
         for (int i = 0; i < array.length; i++)
-            array[i] = (int)(-5 + Math.random() * 10);
+            array[i] = (int) (-5 + Math.random() * 10);
         System.out.println(Arrays.toString(array));
         // сортируем элементы
         // внешний цикл прохода
