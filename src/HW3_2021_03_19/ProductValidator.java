@@ -2,6 +2,9 @@ package HW3_2021_03_19;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -10,8 +13,8 @@ import java.util.GregorianCalendar;
 public class ProductValidator {
 
 
-    public void validateDebitCard(String numberOfCard1, String typeOfCard1, String name1
-            , String surname1, String date1, String cvv1) {
+    public void validateDebitCard(String numberOfCard1, String typeOfCard1, String name1,
+                                  String surname1, String date1, String cvv1) {
         class DebitCardValidation {
             private String typeOfCard;
             private String cardNumber;
@@ -19,6 +22,7 @@ public class ProductValidator {
             private String name;
             private String surname;
             private String date;
+            boolean isCorrect = false;
 
             public DebitCardValidation() {
                 this.typeOfCard = typeOfCard1;
@@ -53,9 +57,7 @@ public class ProductValidator {
                 return surname;
             }
 
-
             public void printCard() {
-
                 System.out.println("DebitCardValidation{" +
                         "typeOfCard='" + typeOfCard + '\'' +
                         ", cardNumber='" + cardNumber + '\'' +
@@ -67,21 +69,19 @@ public class ProductValidator {
             }
 
             public void validateOwner() {
-                int key = 0;
+                isCorrect = true;
                 if (getName() == null || getSurname() == null) {
                     System.out.println("Card owner is not validate! Name or surname is not exist.");
-                    key = 1;
+                    isCorrect = false;
                 }
-
                 String s = getName() + getSurname();
                 for (char c : s.toCharArray())
                     if (Character.isDigit(c)) {
                         System.out.println("Card owner is not validate! Digits in name or surname.");
-                        key = 2;
+                        isCorrect = false;
                         continue;
-
                     }
-                if (key == 0) {
+                if (isCorrect == true) {
                     System.out.println("Card owner validation passed!");
                 }
             }
@@ -97,13 +97,10 @@ public class ProductValidator {
             public void validateCardNumber() {
                 try {
                     int number = Integer.parseInt(getCardnumber());
-
                 } catch (Exception e) {
                     System.out.println("Card number is not validate because on error occurred: "
                             + e.getMessage());
-
                 }
-
                 if (getCardnumber().length() != 9) {
                     System.out.println("Card number is not validate. Number of digits on card is not 9.");
                 } else {
@@ -112,51 +109,42 @@ public class ProductValidator {
             }
 
             public void validateCVV() {
-                int key = 0;
+                isCorrect = true;
                 if (getCvv().length() != 3) {
-                    key = 1;
+                    isCorrect = false;
                     System.out.println("CVV number is not validate. Number of digits on cvv is not 3.");
                 }
                 for (char c : getCvv().toCharArray()) {
                     if (!Character.isDigit(c)) {
-                        key = 2;
+                        isCorrect = false;
                         System.out.println("CVV number is not validate. CVV is not a digit.");
                         break;
                     }
                 }
-                if (key == 0) {
+                if (isCorrect == true) {
                     System.out.println("CVV number validation passed!");
                 }
-
             }
-
 
             public void validateDate() {
                 String strDate = getDate();
-                Date date1 = new Date();
-                Calendar calendar0 = new GregorianCalendar(2015, 11, 31);
-                Calendar calendar2 = new GregorianCalendar(2030, 11, 31);
-                Calendar calendar1 = new GregorianCalendar(1950, 0, 1);
-                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/YYYY");
-                int key = 0;
+                LocalDate localDate = LocalDate.now();
+                LocalDate localDate1 = LocalDate.of(2015, 12, 31);
+                LocalDate localDate2 = LocalDate.of(2030, 12, 31);
+                DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                isCorrect = true;
                 try {
-                    date1 = formatter.parse(strDate);
-
-                } catch (ParseException e) {
+                    localDate = LocalDate.parse(strDate, dateTimeFormatter);
+                } catch (DateTimeParseException e) {
                     System.out.println("Date is not validate because on error occurred: "
                             + e.getMessage());
-                    key = 1;
+                    isCorrect = false;
                 }
-                if (key == 0) {
-                    calendar1.setTime(date1);
-                }
-
-                if (calendar1.after(calendar0) && calendar1.before(calendar2)) {
+                if (localDate.isAfter(localDate1) && localDate.isBefore(localDate2) && isCorrect == true) {
                     System.out.println("Date validation passed!");
                 } else {
                     System.out.println("Date validation failed!");
                 }
-
             }
         }
 
@@ -167,6 +155,5 @@ public class ProductValidator {
         debitCardValidation.validateTypeOfCard();
         debitCardValidation.validateCVV();
         debitCardValidation.validateDate();
-
     }
 }

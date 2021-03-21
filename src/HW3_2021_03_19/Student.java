@@ -7,12 +7,21 @@ public class Student {
     private String surname;
     private String dateOfBirthday;
     private int course;
+    private static List<Student> students;
 
     public Student(String name, String surname, String dateOfBirthday, int course) {
         this.name = name;
         this.surname = surname;
         this.dateOfBirthday = dateOfBirthday;
         this.course = course;
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public static void setStudents(List<Student> students1) {
+        students = students1;
     }
 
     public String getName() {
@@ -53,14 +62,17 @@ public class Student {
                 + " /курс: " + course;
     }
 
-    public void printStudents(List<Student> students, int course) {
-
+    public static void printStudents(int course) {
         for (Student student : students) {
             if (student.getCourse() == course) {
                 System.out.println(student.toString());
             }
-
         }
+    }
 
+    public static void printStudents() {
+        for (Student student : students) {
+            System.out.println(student.toString());
+        }
     }
 }

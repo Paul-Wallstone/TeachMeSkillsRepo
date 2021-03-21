@@ -7,7 +7,7 @@ public class Computer {
     private String cpuType;
     private int ramVolume;
     private int ssdVolume;
-    public static int isBroken = 0;
+    public static boolean isBroken = false;
 
     public Computer(String cpuType, int ramVolume, int ssdVolume) {
         this.cpuType = cpuType;
@@ -54,11 +54,11 @@ public class Computer {
         int numRandom = (int) (Math.random() * 2);
         System.out.println("Введите 0 или 1, чтобы включить компьютер!");
         int numUser = sc.nextInt();
-        if (numRandom == numUser && isBroken == 0) {
+        if (numRandom == numUser && isBroken == false) {
             System.out.println("PC on!");
         } else {
             System.out.println("PC broken!");
-            isBroken = 1;
+            isBroken = true;
         }
 
     }
@@ -68,11 +68,11 @@ public class Computer {
         int numRandom = (int) (Math.random() * 2);
         System.out.println("Введите 0 или 1, чтобы выключить компьютер!");
         int numUser = sc.nextInt();
-        if (numRandom == numUser && isBroken == 0) {
+        if (numRandom == numUser && isBroken == false) {
             System.out.println("PC off!");
         } else {
             System.out.println("PC broken!");
-            isBroken = 1;
+            isBroken = true;
         }
     }
 }
