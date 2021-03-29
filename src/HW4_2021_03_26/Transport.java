@@ -1,10 +1,10 @@
 package HW4_2021_03_26;
 
-public class Transport {
-    private int horsePower;
-    private int maxSpeed;
-    private int weight;
-    private String brand;
+public abstract class Transport {
+    protected int horsePower;
+    protected int maxSpeed;
+    protected int weight;
+    protected String brand;
 
     public Transport(int horsePower, int maxSpeed, int weight, String brand) {
         this.horsePower = horsePower;
@@ -29,13 +29,10 @@ public class Transport {
         return brand;
     }
 
-    public double kwConverter(int horsePower) {
+    protected double kwConverter(int horsePower) {
         return horsePower / 07.4;
     }
 
-    public String info() {
-        return "Характеристики транспорта:\n1)Мощность - " + getHorsePower() + "л.с.\n" +
-                "2)Максимальная скорость - " + getMaxSpeed() + "км/ч\n" +
-                "3)Масса - " + getWeight() + "кг.\n4)Марка - " + getBrand() + "\n";
-    }
+    public abstract String info();
+
 }

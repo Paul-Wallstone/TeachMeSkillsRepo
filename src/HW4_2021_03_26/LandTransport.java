@@ -1,8 +1,8 @@
 package HW4_2021_03_26;
 
 public class LandTransport extends Transport {
-    private int numberOfWheels;
-    private int fuelConsumption;
+    protected int numberOfWheels;
+    protected int fuelConsumption;
 
     public LandTransport(int horsePower, int maxSpeed, int weight, String brand, int numberOfWheels, int fuelConsumption) {
         super(horsePower, maxSpeed, weight, brand);
@@ -20,6 +20,10 @@ public class LandTransport extends Transport {
 
     @Override
     public String info() {
-        return super.info() + "5)Количество колес - " + getNumberOfWheels() + "\n6)Расход топлива - " + getFuelConsumption() + "л. на 100 км\n";
+        return "Характеристики наземного транспорта:\n1)Мощность - " + getHorsePower() + "л.с.\n" +
+                "2)Максимальная скорость - " + getMaxSpeed() + "км/ч\n" +
+                "3)Масса - " + getWeight() + "кг.\n4)Марка - " + getBrand() + "\n" +
+                "5)Количество колес - " + getNumberOfWheels() + "\n6)Расход топлива - " +
+                getFuelConsumption() + "л. на 100 км\n";
     }
 }
