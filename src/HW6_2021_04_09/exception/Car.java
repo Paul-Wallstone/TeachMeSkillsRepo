@@ -60,7 +60,7 @@ public class Car {
         if (random.nextInt(21) % 2 != 0) {
             System.out.println("Car " + this.getBrand() + " engine starts work!");
         } else {
-            throw new CarException("Engine is not start!");
+            throw new CarException("Engine is not start!\n"+ this.toString());
         }
     }
 

@@ -8,23 +8,10 @@ public class Application {
 
         try {
             car1.start();
-        } catch (CarException e) {
-            System.out.println(e.getMessage());
-            System.out.println(car1.toString() + " is not starting!");
-        }
-
-        try {
             car2.start();
-        } catch (CarException e) {
-            System.out.println(e.getMessage());
-            System.out.println(car2.toString() + " is not starting!");
-        }
-
-        try {
             car3.start();
         } catch (CarException e) {
             System.out.println(e.getMessage());
-            System.out.println(car3.toString() + " is not starting!");
         }
     }
 }
