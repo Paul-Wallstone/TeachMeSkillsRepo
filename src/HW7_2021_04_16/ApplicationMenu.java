@@ -102,7 +102,7 @@ public class ApplicationMenu {
 
     private static void addProduct(Scanner scanner) throws ProductException {
         String title;
-        int price;
+        int price = 0;
         boolean add = false;
         System.out.println("\nВвести из консоли 2 параметра (название, цена)");
         System.out.println("Введите название:");
@@ -115,8 +115,6 @@ public class ApplicationMenu {
         } catch (InputMismatchException e) {
             System.out.println("введена не цифра!");
             scanner.nextLine();
-        } finally {
-            price = 0;
         }
         if (add) {
             shop.addProduct(new Product(title, price));
@@ -128,31 +126,25 @@ public class ApplicationMenu {
 
     private static void editProduct(Scanner scanner) throws ProductException {
         int id = 0;
-        String title;
+        String title = "";
         int price = 0;
-        boolean edit1 = false, edit2 = false;
+        boolean isEditable = false;
         System.out.println("\nВвести из консоли 3 параметра (id,название, цена)");
         System.out.println("Введите id:");
         scanner.nextLine();
         try {
             id = scanner.nextInt();
-            edit1 = true;
-        } catch (InputMismatchException e) {
-            System.out.println("введена не цифра!");
+            System.out.println("Введите название:");
             scanner.nextLine();
-        }
-        System.out.println("Введите название:");
-        scanner.nextLine();
-        title = scanner.nextLine();
-        System.out.println("Введите цену:");
-        try {
+            title = scanner.nextLine();
+            System.out.println("Введите цену:");
             price = scanner.nextInt();
-            edit2 = true;
+            isEditable = true;
         } catch (InputMismatchException e) {
             System.out.println("введена не цифра!");
             scanner.nextLine();
         }
-        if (edit1 && edit2) {
+        if (isEditable) {
             shop.editProduct(id, title, price);
             System.out.println("Объект изменен!");
         } else {

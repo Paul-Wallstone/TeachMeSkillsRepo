@@ -3,20 +3,20 @@ package HW7_2021_04_16;
 import java.util.*;
 
 public class Shop {
-    private HashSet<Product> products = new HashSet<>();
+    private TreeSet<Product> products = new TreeSet<>();
 
     public Shop() {
     }
 
-    public Shop(HashSet<Product> products) {
+    public Shop(TreeSet<Product> products) {
         this.products = products;
     }
 
-    public HashSet<Product> getProducts() {
+    public TreeSet<Product> getProducts() {
         return products;
     }
 
-    public void setProducts(HashSet<Product> products) {
+    public void setProducts(TreeSet<Product> products) {
         this.products = products;
     }
 
@@ -33,26 +33,22 @@ public class Shop {
     }
 
     //получить все товары (метод возвращает список всех товаров в магазине)
-    public List returnProductList() {
-        List<Product> productList = new ArrayList<>(products);
-        return productList;
+    public TreeSet<Product> returnProductList() {
+        return products;
     }
 
     //Печатает все объекты
     public void printProducts() {
-        Iterator<Product> i = getProducts().iterator();
-        while (i.hasNext())
-            System.out.println(i.next().toString());
-
+        for (Product p : products) {
+            System.out.println(p.toString());
+        }
     }
 
     //удалить товар (метод принимает в качестве параметра id товара и удаляет из списка товар с соответствующим id)
     public void removeProduct(int id) {
-        Iterator<Product> i = getProducts().iterator();
-        while (i.hasNext()) {
-            Product product = i.next();
-            if (product.getId() == id) {
-                getProducts().remove(product);
+        for (Product p : products) {
+            if (p.getId() == id) {
+                getProducts().remove(p);
                 System.out.println("Удаление прошло успешно!");
                 break;
             }
@@ -104,20 +100,21 @@ public class Shop {
     }
 
     // Выводит отсортированный лист
-    public void printSortList(List<Product> products, boolean reverse) {
+    public void printSortList(TreeSet<Product> products, boolean reverse) {
         if (reverse) {
-            Collections.sort(products, Collections.reverseOrder());
-        } else {
-            Collections.sort(products);
-        }
-        for (Product p : products) {
-            System.out.println(p.toString());
-        }
+            for (Product p : products.descendingSet()) {
+                System.out.println(p.toString());
+            }
+        } else
+            for (Product p : products) {
+                System.out.println(p.toString());
+            }
     }
 
-    public void printSortList(List<Product> products, Comparator comparator) {
-        Collections.sort(products, comparator);
-        for (Product p : products) {
+    public void printSortList(TreeSet<Product> products, Comparator comparator) {
+        TreeSet<Product> set = new TreeSet<>(comparator);
+        set.addAll(products);
+        for (Product p : set) {
             System.out.println(p.toString());
         }
     }
