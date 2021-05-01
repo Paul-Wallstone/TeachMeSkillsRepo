@@ -1,9 +1,9 @@
 package HW8_2021_04_23.secondtask;
 
 public class TextFormater {
-    static int countWordsInString(String str) {
+    static boolean countWordsInString(String str) {
         String[] strings = str.split(" ");
-        return strings.length;
+        return strings.length>=3&& strings.length<=5;
     }
 
     static boolean isStringHasPolindrome(String str) {

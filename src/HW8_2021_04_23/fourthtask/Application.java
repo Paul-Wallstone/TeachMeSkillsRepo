@@ -7,7 +7,7 @@ import java.io.ObjectOutputStream;
 
 public class Application {
     public static void main(String[] args) {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("src/HW8_2021_04_23/fourthtask/car.dat"))) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(Paths.ORIGIN_FILE_PATH.getPath()))) {
             Car car1 = new Car("BMW", 270, 50000);
             oos.writeObject(car1);
             System.out.println("File has been written");
@@ -15,7 +15,7 @@ public class Application {
             System.out.println(e.getMessage());
         }
         Car car2 = new Car();
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("src/HW8_2021_04_23/fourthtask/car.dat"))) {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(Paths.ORIGIN_FILE_PATH.getPath()))) {
 
             car2 = ((Car) ois.readObject());
             System.out.println("File has been read");

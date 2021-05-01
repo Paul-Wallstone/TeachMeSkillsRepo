@@ -5,17 +5,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CensureClass {
-    private static List<String> stringsNeedToCensored = new ArrayList<String>();
+    private static List<String> stringsNeedToCensored = new ArrayList<>();
     static private int stringCount = 0;
-    private String[] stringArray;
 
-    public static List<String> getStringsNeedToCensored() {
-        return stringsNeedToCensored;
-    }
-
-    public static int getStringCount() {
-        return stringCount;
-    }
 
     public static void startCensored(String blackList, String censoredText) {
         String regex = "[;.!?]";
@@ -23,11 +15,11 @@ public class CensureClass {
         for (String censoredString : strings) {
             countCensoredWordsInString(blackList, censoredString);
         }
-        if (getStringCount() == 0) {
+        if (stringCount == 0) {
             System.out.println("Censored strings are not exist!");
         } else {
-            System.out.printf("%d sentenсes should be censored:\n", getStringCount());
-            for (String str : getStringsNeedToCensored()) {
+            System.out.printf("%d sentenсes should be censored:\n", stringCount);
+            for (String str : stringsNeedToCensored) {
                 System.out.println(str + ".");
             }
         }

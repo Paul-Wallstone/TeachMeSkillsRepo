@@ -2,23 +2,25 @@ package HW8_2021_04_23.thirdtask;
 
 import HW8_2021_04_23.secondtask.TextFormater;
 
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class Application {
     public static void main(String[] args) {
-        try (FileReader blackList = new FileReader("src/HW8_2021_04_23/thirdtask/BlackList.txt");
-             FileReader censoredText = new FileReader("src/HW8_2021_04_23/thirdtask/censoredText.txt")) {
+        String line = "";
+        try (BufferedReader blackList = new BufferedReader(new FileReader(Paths.ORIGIN_FILE_PATH.getPath()));
+             BufferedReader censoredText = new BufferedReader(new FileReader(Paths.NEW_FILE_PATH.getPath()))) {
             String[] strings;
             String blackString = "";
             String censoredString = "";
-            int c;
-            while ((c = blackList.read()) != -1) {
-                blackString += (char) c;
+
+            while ((line = blackList.readLine()) != null) {
+                blackString += line+"\r\n";
             }
-            while ((c = censoredText.read()) != -1) {
-                censoredString += (char) c;
+            while ((line = censoredText.readLine()) != null) {
+                censoredString += line;
             }
             CensureClass.startCensored(blackString, censoredString);
         } catch (IOException ex) {

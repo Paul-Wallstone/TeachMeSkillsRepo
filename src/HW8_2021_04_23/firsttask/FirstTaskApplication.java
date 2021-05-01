@@ -1,8 +1,8 @@
 package HW8_2021_04_23.firsttask;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class FirstTaskApplication {
@@ -10,17 +10,15 @@ public class FirstTaskApplication {
 //        В исходном файле находятся слова.
 //        Каждое слово располагается на новой строке.
 //        После запуска программы должен создаться файл, который будет содержать в себе только палиндромы.
-        try (FileInputStream fis = new FileInputStream("src/HW8_2021_04_23/firsttask/InputOutputStreamFile.txt");
-             FileOutputStream fos = new FileOutputStream("src/HW8_2021_04_23/firsttask/InputOutputStreamFileNew.txt")) {
-            byte[] buffer = new byte[fis.available()];
-            fis.read(buffer, 0, buffer.length);
-            String strOutputFromBuffer = "";
-            String strInputFromBuffer = "";
-            for (int i = 0; i < buffer.length; i++) {
-                strInputFromBuffer += (char) buffer[i];
+        List<String> words = new ArrayList<String>();
+        String line = "";
+        try (BufferedReader reader = new BufferedReader(new FileReader(Paths.ORIGIN_FILE_PATH.getPath()));
+             FileOutputStream fos = new FileOutputStream(Paths.NEW_FILE_PATH.getPath())) {
+            while ((line = reader.readLine()) != null) {
+                words.add(line);
             }
-            String[] strArray = strInputFromBuffer.split("\r\n");
-            for (String str : strArray) {
+            String strOutputFromBuffer = "";
+            for (String str : words) {
                 String strReverse = new StringBuilder(str).reverse().toString();
                 if (str.equals(strReverse)) {
                     strOutputFromBuffer += str + "\r\n";
