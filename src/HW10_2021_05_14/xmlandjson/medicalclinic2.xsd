@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:simpleType name="inttype">
+        <xs:restriction base="xs:positiveInteger"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="stringtype">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:complexType name="stufftype">
+        <xs:sequence>
+            <xs:element type="stringtype" name="name"/>
+            <xs:element type="stringtype" name="position"/>
+            <xs:element type="stringtype" name="department"/>
+            <xs:element type="inttype" name="experience"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="clinictype">
+        <xs:sequence>
+            <xs:element name="stuff" type="stufftype" maxOccurs="unbounded">
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="clinic" type="clinictype"/>
+</xs:schema>

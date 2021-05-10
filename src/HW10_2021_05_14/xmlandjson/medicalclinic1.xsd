@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element type="xs:string" name="name"/>
+    <xs:element type="xs:string" name="position"/>
+    <xs:element type="xs:string" name="department"/>
+    <xs:element type="xs:positiveInteger" name="experience"/>
+
+    <xs:element name="stuff">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="name"/>
+                <xs:element ref="position"/>
+                <xs:element ref="department"/>
+                <xs:element ref="experience"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="clinic">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="stuff" maxOccurs="unbounded">
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
