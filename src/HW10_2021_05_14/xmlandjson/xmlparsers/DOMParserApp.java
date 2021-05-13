@@ -37,7 +37,6 @@ public class DOMParserApp {
             }
             employees.add(new Employee(name, position, department, Integer.parseInt(experience)));
         }
-
         employees.stream().map(a -> "Name: " + a.getName() + "\nPosition: "
                 + a.getPosition() + "\nDepartment: " + a.getDepartment()
                 + "\nExperience: " + a.getExperience() + "\n").forEach(System.out::println);
