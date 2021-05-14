@@ -1,4 +1,4 @@
-package HW10_2021_05_14.jdbc;
+package HW10_2021_05_14.jdbc.classes;
 
 public class Student {
     private int id;
@@ -47,7 +47,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "classes.Student{" +
                 "id=" + id +
                 ", surname='" + surname + '\'' +
                 ", name='" + name + '\'' +
