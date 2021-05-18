@@ -17,7 +17,7 @@ public class MedicalSearch {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document document = builder.parse(new File("src/HW10_2021_05_14/xmlandjson/medicalclinic.xml"));
-        String nameTXT = "", positionTXT = "", departmentTXT = "", experienceTXT = "", string = "";
+        String nameTXT = "", positionTXT = "", departmentTXT = "", experienceTXT = "", doctorSearched = "";
         NodeList employeeElements = document.getDocumentElement().getElementsByTagName("name");
         for (int i = 0; i < employeeElements.getLength(); i++) {
             Node nameStuff = employeeElements.item(i);
@@ -25,7 +25,7 @@ public class MedicalSearch {
                 NodeList stuffList = nameStuff.getParentNode().getChildNodes();
                 for (int ii = 0; ii < stuffList.getLength(); ii++) {
                     Node element = stuffList.item(ii);
-                    string += switch (element.getNodeName()) {
+                    doctorSearched += switch (element.getNodeName()) {
                         case "name" -> "name: " + element.getTextContent() + "\n";
                         case "position" -> "position: " + element.getTextContent() + "\n";
                         case "department" -> "department: " + element.getTextContent() + "\n";
@@ -35,9 +35,9 @@ public class MedicalSearch {
                 }
             }
         }
-        if (string.equals("")) {
-            return string = "Such doctor is not exist!";
+        if (doctorSearched.equals("")) {
+            return doctorSearched = "Such doctor is not exist!";
         } else
-            return string;
+            return doctorSearched;
     }
 }

@@ -38,14 +38,14 @@ public class CRUDUtils {
         return students;
     }
 
-    public static List<Student> updateStudentsData(int studentID, String name, String surname, String course_name) {
+    public static List<Student> updateStudentsData(Student student) {
         List<Student> students = new ArrayList<>();
         try (Connection connection = DBUtils.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_STUDENT);) {
-            preparedStatement.setString(1, name);
-            preparedStatement.setString(2, surname);
-            preparedStatement.setString(3, course_name);
-            preparedStatement.setInt(4, studentID);
+            preparedStatement.setString(1, student.getName());
+            preparedStatement.setString(2, student.getSurname());
+            preparedStatement.setString(3, student.getCourse_name());
+            preparedStatement.setInt(4, student.getId());
             preparedStatement.executeUpdate();
 
 
@@ -73,8 +73,8 @@ public class CRUDUtils {
             preparedStatement.setInt(1, studentId);
             preparedStatement.executeUpdate();
 
-            PreparedStatement AllPreparedStatement = connection.prepareStatement(GET_ALL_STUDENTS);
-            ResultSet rs = AllPreparedStatement.executeQuery();
+            PreparedStatement allPreparedStatement = connection.prepareStatement(GET_ALL_STUDENTS);
+            ResultSet rs = allPreparedStatement.executeQuery();
 
             while (rs.next()) {
                 int id = rs.getInt("id");
@@ -100,8 +100,8 @@ public class CRUDUtils {
             preparedStatement.setString(3, student.getCourse_name());
             preparedStatement.executeUpdate();
 
-            PreparedStatement AllPreparedStatement = connection.prepareStatement(GET_ALL_STUDENTS);
-            ResultSet rs = AllPreparedStatement.executeQuery();
+            PreparedStatement allPreparedStatement = connection.prepareStatement(GET_ALL_STUDENTS);
+            ResultSet rs = allPreparedStatement.executeQuery();
 
             while (rs.next()) {
                 int id = rs.getInt("id");
