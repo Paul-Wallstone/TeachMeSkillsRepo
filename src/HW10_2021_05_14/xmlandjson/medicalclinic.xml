@@ -30,7 +30,7 @@
     </stuff>
     <stuff>
         <name>Allison Cameron</name>
-        <position>Doctor</position>
+        <position>classes.Stuff</position>
         <department>Diagnostic medicine</department>
         <experience>12</experience>
     </stuff>
