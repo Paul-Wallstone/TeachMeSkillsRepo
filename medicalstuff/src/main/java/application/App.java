@@ -6,14 +6,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import utils.CRUDUtils;
-import utils.DBUtils;
-
-import java.io.IOException;
-import java.sql.Connection;
 import java.sql.SQLException;
 
 public class App extends Application {
+
     @Override
     public void init() throws Exception {
         System.out.println("Application inits");
