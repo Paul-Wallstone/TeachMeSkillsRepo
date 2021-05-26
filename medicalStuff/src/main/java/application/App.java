@@ -14,20 +14,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class App extends Application {
-//    private static Connection connection;
-//
-//    public static Connection getConnection() {
-//        return connection;
-//    }
-//
-//    public static void inits() throws SQLException {
-//        connection = DBUtils.getConnection();
-//    }
-//
-//    public static void close() throws SQLException {
-//        connection.close();
-//    }
-
     @Override
     public void init() throws Exception {
         System.out.println("Application inits");
@@ -59,18 +45,5 @@ public class App extends Application {
 
     public static void main(String[] args) throws SQLException {
         Application.launch(args);
-
-//        inits();
-//        System.out.println("Init");
-//        CRUDUtils.getDoctorsData(connection).stream().forEach(System.out::println);
-//        Stuff stuff = new Stuff(1, "FF", "FF", 100, "FF", "FF");
-//        CRUDUtils.updateDoctorsData(stuff, connection);
-//        CRUDUtils.deleteDoctorsData(2, connection);
-//        Stuff stuff2 = new Stuff(1, "FFW", "FFW", 100, "FFW", "FFW");
-//        CRUDUtils.saveStudentData(stuff2, connection);
-//        CRUDUtils.getDoctorsData(connection).stream().forEach(System.out::println);
-//        close();
-//        System.out.println("Close");
-
     }
 }
